@@ -1,4 +1,4 @@
-// import java.io.IOException;
+import java.io.File;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.StringEntity;
@@ -7,6 +7,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.util.EntityUtils;
 import org.json.*;
 
@@ -79,19 +80,20 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	private static JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
+	private static JSONObject addFileToBatch(String apiToken, int batchID, String fileName) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
-			HttpPost postRequest = new HttpPost(target);
+			File new_batch_file = new File(fileName);
+			
+			HttpPost postRequest = new HttpPost("https://shreddr.captricity.com/api/v1/batch/" + batchID + "/batch-file/");
 			postRequest.addHeader("Captricity-API-Token", apiToken);
 			
 			HttpEntity input = MultipartEntityBuilder
 			 .create()
-			 .addTextBody("field1","val1")
-			 .addTextBody("field2","val2")
-			 .addBinaryBody("file", new File("somefile.zip"),ContentType.create("application/zip"),"somefile.zip")
+			 .addTextBody("uploaded_with", "api")
+			 .addTextBody("file_name", new_batch_file.getName())
+			 .addBinaryBody("uploaded_file", new_batch_file)
 			 .build();
-			// input.setContentType("application/json");
 			postRequest.setEntity(input);
 			
 			CloseableHttpResponse response = client.execute(postRequest);
@@ -107,10 +109,6 @@ public class BasicCaptricityClient {
 			client.close();
 	  }
 		return new JSONObject();
-		
-		
-		HttpPost post = new HttpPost("https://www.some.domain");
-		post.setEntity(entity);
 	}
 	
 	
@@ -127,6 +125,11 @@ public class BasicCaptricityClient {
 			
 			JSONObject newBatch = createBatch(apiToken, "Test Java Batch-1", true, false);
 			System.out.println("New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
+			System.out.println();
+			
+			JSONObject batchFile = addFileToBatch(apiToken, newBatch.getInt("id"), "/Users/davids/Desktop/EZ-return1.pdf");
+			System.out.println("Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
+			// System.out.println(batchFile);
 			System.out.println();
 			
       JSONArray batches = showBatches(apiToken);
