@@ -79,9 +79,39 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	// private static JSONArray addBatchFile() throws Exception {
-	//
-	// }
+	private static JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
+		CloseableHttpClient client = HttpClients.createDefault();
+		try {
+			HttpPost postRequest = new HttpPost(target);
+			postRequest.addHeader("Captricity-API-Token", apiToken);
+			
+			HttpEntity input = MultipartEntityBuilder
+			 .create()
+			 .addTextBody("field1","val1")
+			 .addTextBody("field2","val2")
+			 .addBinaryBody("file", new File("somefile.zip"),ContentType.create("application/zip"),"somefile.zip")
+			 .build();
+			// input.setContentType("application/json");
+			postRequest.setEntity(input);
+			
+			CloseableHttpResponse response = client.execute(postRequest);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				String json_string = EntityUtils.toString(entity);
+				return new JSONObject(json_string);
+	    }
+			
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  } finally {
+			client.close();
+	  }
+		return new JSONObject();
+		
+		
+		HttpPost post = new HttpPost("https://www.some.domain");
+		post.setEntity(entity);
+	}
 	
 	
 	private static JSONArray showDocuments(String apiToken) throws Exception {
@@ -93,7 +123,7 @@ public class BasicCaptricityClient {
 	
   public static void main(String[] args) {
     try {
-			String apiToken = System.getenv("METLIFE_API_TOKEN");
+			String apiToken = System.getenv("TEST_API_TOKEN");
 			
 			JSONObject newBatch = createBatch(apiToken, "Test Java Batch-1", true, false);
 			System.out.println("New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
