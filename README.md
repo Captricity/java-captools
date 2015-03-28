@@ -3,6 +3,9 @@ Captricity API client written in Java
 
 Very basic functionality at this point.  Currently, this script demonstrates how to create a batch, add a batch file to that batch and list existing unprocessed batches and templates.
 
+This code was built against Java 1.8.0_40.
+
+In order to use this code, you will also need a Captricity API Token.
 
 ### Dependencies
 
