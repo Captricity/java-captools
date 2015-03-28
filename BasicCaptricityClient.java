@@ -34,7 +34,7 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	private static String makePostCall(String apiToken, String target, JSONObject payload) throws Exception {
+	private static JSONObject makePostCall(String apiToken, String target, JSONObject payload) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpPost postRequest = new HttpPost(target);
@@ -47,16 +47,16 @@ public class BasicCaptricityClient {
 			CloseableHttpResponse response = client.execute(postRequest);
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
-				String output = EntityUtils.toString(entity);
-				return output;
-	    } 
+				String json_string = EntityUtils.toString(entity);
+				return new JSONObject(json_string);
+	    }
 			
 	  } catch (Exception e) {
 	    e.printStackTrace();
 	  } finally {
 			client.close();
 	  }
-		return "--empty--";
+		return new JSONObject();
 	}
 	
 	
@@ -67,14 +67,14 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	private static String createBatch(String apiToken, String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
+	private static JSONObject createBatch(String apiToken, String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
 		// assemble payload
 		JSONObject payload = new JSONObject();
 		payload.put("name", name);
 		payload.put("sorting_enabled", sorting_enabled);
 		payload.put("is_sorting_only", is_sorting_only);
-		String response = makePostCall(apiToken, batchesUri, payload);
+		JSONObject response = makePostCall(apiToken, batchesUri, payload);
 		return response;
 	}
 	
@@ -95,8 +95,9 @@ public class BasicCaptricityClient {
     try {
 			String apiToken = System.getenv("METLIFE_API_TOKEN");
 			
-			String newBatch = createBatch(apiToken, "Test Java Batch-2", true, false);
-			System.out.println(newBatch);
+			JSONObject newBatch = createBatch(apiToken, "Test Java Batch-1", true, false);
+			System.out.println("New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
+			System.out.println();
 			
       JSONArray batches = showBatches(apiToken);
 			int numOfBatches = batches.length();
@@ -104,9 +105,10 @@ public class BasicCaptricityClient {
 			if ( numOfBatches > 0 ) {
 				for (int i = 0; i < numOfBatches; i = i + 1) {
 					JSONObject batch = batches.getJSONObject(i);
-					System.out.println("Batch:  " + batch.getInt("id") + ", " + batch.getString("name"));
+					System.out.println("Batch:  " + batch.getInt("id") + ", " + 
+														  batch.getString("name") + " (files = " + batch.getInt("file_count") + ")");
 					// System.out.println(batch.toString(2));
-					System.out.println();
+					// System.out.println();
 				}
 			}
 			System.out.println();
@@ -119,7 +121,7 @@ public class BasicCaptricityClient {
 					JSONObject doc = documents.getJSONObject(i);
 					System.out.println("Template:  " + doc.getInt("id") + ", " + doc.getString("name"));
 					// System.out.println(doc.toString(2));
-					System.out.println();
+					// System.out.println();
 				}
 			}
 			System.out.println();
