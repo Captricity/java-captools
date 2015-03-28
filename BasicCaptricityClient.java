@@ -1,53 +1,12 @@
 // import java.io.IOException;
-// import org.apache.http.*;
-// import org.apache.http.Consts;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.StringEntity;
-// import org.apache.http.HttpHost;
-// import org.apache.http.HttpRequest;
-// import org.apache.http.HttpResponse;
-// import org.apache.http.ParseException;
-// import org.apache.http.client.CookieStore;
-// import org.apache.http.client.CredentialsProvider;
-// import org.apache.http.client.config.AuthSchemes;
-// import org.apache.http.client.config.CookieSpecs;
-// import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-// import org.apache.http.client.protocol.HttpClientContext;
-// import org.apache.http.config.ConnectionConfig;
-// import org.apache.http.config.MessageConstraints;
-// import org.apache.http.config.Registry;
-// import org.apache.http.config.RegistryBuilder;
-// import org.apache.http.config.SocketConfig;
-// import org.apache.http.conn.DnsResolver;
-// import org.apache.http.conn.HttpConnectionFactory;
-// import org.apache.http.conn.ManagedHttpClientConnection;
-// import org.apache.http.conn.routing.HttpRoute;
-// import org.apache.http.conn.socket.ConnectionSocketFactory;
-// import org.apache.http.conn.socket.PlainConnectionSocketFactory;
-// import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-// import org.apache.http.impl.DefaultHttpResponseFactory;
-// import org.apache.http.impl.client.BasicCookieStore;
-// import org.apache.http.impl.client.BasicCredentialsProvider;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-// import org.apache.http.impl.conn.DefaultHttpResponseParser;
-// import org.apache.http.impl.conn.DefaultHttpResponseParserFactory;
-// import org.apache.http.impl.conn.ManagedHttpClientConnectionFactory;
-// import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-// import org.apache.http.impl.conn.SystemDefaultDnsResolver;
-// import org.apache.http.impl.io.DefaultHttpRequestWriterFactory;
-// import org.apache.http.io.HttpMessageParser;
-// import org.apache.http.io.HttpMessageParserFactory;
-// import org.apache.http.io.HttpMessageWriterFactory;
-// import org.apache.http.io.SessionInputBuffer;
-// import org.apache.http.message.BasicHeader;
-// import org.apache.http.message.BasicLineParser;
-// import org.apache.http.message.LineParser;
-// import org.apache.http.ssl.SSLContexts;
-// import org.apache.http.util.CharArrayBuffer;
 import org.apache.http.util.EntityUtils;
 import org.json.*;
 
@@ -56,7 +15,6 @@ public class BasicCaptricityClient {
 	private static JSONArray makeGetCall(String apiToken, String target) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
-			
 			HttpGet getRequest = new HttpGet(target);
 			getRequest.addHeader("Captricity-API-Token", apiToken);
 			
@@ -76,19 +34,21 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	private static JSONArray makePostCall(String apiToken, String target, JSONObject payload) throws Exception {
+	private static String makePostCall(String apiToken, String target, JSONObject payload) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
-			
-			HttpPost postRequest = new HttpGet(target);
-			getRequest.addHeader("Captricity-API-Token", apiToken);
+			HttpPost postRequest = new HttpPost(target);
+			postRequest.addHeader("Captricity-API-Token", apiToken);
 			// add payload to the mix
+			StringEntity input = new StringEntity(payload.toString());
+			input.setContentType("application/json");
+			postRequest.setEntity(input);
 			
 			CloseableHttpResponse response = client.execute(postRequest);
 			HttpEntity entity = response.getEntity();
 			if (entity != null) {
-				String json_string = EntityUtils.toString(entity);
-				return new JSONArray(json_string);
+				String output = EntityUtils.toString(entity);
+				return output;
 	    } 
 			
 	  } catch (Exception e) {
@@ -96,7 +56,7 @@ public class BasicCaptricityClient {
 	  } finally {
 			client.close();
 	  }
-		return new JSONArray();
+		return "--empty--";
 	}
 	
 	
@@ -107,19 +67,22 @@ public class BasicCaptricityClient {
 	}
 	
 	
-	private static JSONArray createBatch(String apiToken, String name, Boolean sorting_enabled, Boolean is_sorting_only) {
+	private static String createBatch(String apiToken, String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
 		// assemble payload
 		JSONObject payload = new JSONObject();
 		payload.put("name", name);
 		payload.put("sorting_enabled", sorting_enabled);
 		payload.put("is_sorting_only", is_sorting_only);
-		JSONArray response = makePostCall(apiToken, batchesUri, payload);
+		String response = makePostCall(apiToken, batchesUri, payload);
 		return response;
 	}
 	
 	
-	private static JSONArray add
+	// private static JSONArray addBatchFile() throws Exception {
+	//
+	// }
+	
 	
 	private static JSONArray showDocuments(String apiToken) throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
@@ -132,7 +95,7 @@ public class BasicCaptricityClient {
     try {
 			String apiToken = System.getenv("METLIFE_API_TOKEN");
 			
-			JSONArray newBatch = createBatch(apiToken, "Test Java Batch-1", true, false);
+			String newBatch = createBatch(apiToken, "Test Java Batch-2", true, false);
 			System.out.println(newBatch);
 			
       JSONArray batches = showBatches(apiToken);
