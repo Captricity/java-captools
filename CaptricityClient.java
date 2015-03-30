@@ -21,7 +21,7 @@ public class CaptricityClient {
 		apiToken = token;
 	}
 	
-	private static JSONArray makeGetCall(String target) throws Exception {
+	private JSONArray makeGetCall(String target) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpGet getRequest = new HttpGet(target);
@@ -42,7 +42,7 @@ public class CaptricityClient {
 		return new JSONArray();
 	}
 	
-	private static JSONObject makePostCall(String target, JSONObject payload) throws Exception {
+	private JSONObject makePostCall(String target, JSONObject payload) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpPost postRequest = new HttpPost(target);
@@ -67,24 +67,24 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
-	public static JSONArray showBatches() throws Exception {
+	public JSONArray showBatches() throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
-    JSONArray response = makeGetCall(apiToken, batchesUri);
+    JSONArray response = makeGetCall(batchesUri);
 		return response;
 	}
 	
-	public static JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
+	public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
 		// assemble payload
 		JSONObject payload = new JSONObject();
 		payload.put("name", name);
 		payload.put("sorting_enabled", sorting_enabled);
 		payload.put("is_sorting_only", is_sorting_only);
-		JSONObject response = makePostCall(apiToken, batchesUri, payload);
+		JSONObject response = makePostCall(batchesUri, payload);
 		return response;
 	}
 	
-	public static JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
+	public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			File new_batch_file = new File(fileName);
@@ -115,9 +115,9 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
-	public static JSONArray showDocuments() throws Exception {
+	public JSONArray showDocuments() throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
-		JSONArray response = makeGetCall(apiToken, documentsUri);
+		JSONArray response = makeGetCall(documentsUri);
 		return response;
 	}
 }
