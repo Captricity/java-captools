@@ -15,7 +15,13 @@ import org.json.*;
 
 public class CaptricityClient {
 	
-	private static JSONArray makeGetCall(String apiToken, String target) throws Exception {
+	private String apiToken;
+	
+	public CaptricityClient(String token) {
+		apiToken = token;
+	}
+	
+	private static JSONArray makeGetCall(String target) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpGet getRequest = new HttpGet(target);
@@ -36,8 +42,7 @@ public class CaptricityClient {
 		return new JSONArray();
 	}
 	
-	
-	private static JSONObject makePostCall(String apiToken, String target, JSONObject payload) throws Exception {
+	private static JSONObject makePostCall(String target, JSONObject payload) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpPost postRequest = new HttpPost(target);
@@ -62,15 +67,13 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
-	
-	private static JSONArray showBatches(String apiToken) throws Exception {
+	public static JSONArray showBatches() throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
     JSONArray response = makeGetCall(apiToken, batchesUri);
 		return response;
 	}
 	
-	
-	private static JSONObject createBatch(String apiToken, String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
+	public static JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
 		// assemble payload
 		JSONObject payload = new JSONObject();
@@ -81,8 +84,7 @@ public class CaptricityClient {
 		return response;
 	}
 	
-	
-	private static JSONObject addFileToBatch(String apiToken, int batchID, String fileName) throws Exception {
+	public static JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			File new_batch_file = new File(fileName);
@@ -113,58 +115,9 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
-	
-	private static JSONArray showDocuments(String apiToken) throws Exception {
+	public static JSONArray showDocuments() throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
 		JSONArray response = makeGetCall(apiToken, documentsUri);
 		return response;
 	}
-	
-	
-  public static void main(String[] args) {
-    try {
-			String apiToken = System.getenv("TEST_API_TOKEN");
-			
-			JSONObject newBatch = createBatch(apiToken, "Test Java Batch-1", true, false);
-			System.out.println("New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
-			System.out.println();
-			
-			JSONObject batchFile = addFileToBatch(apiToken, newBatch.getInt("id"), "/Users/davids/Desktop/EZ-return1.pdf");
-			System.out.println("Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
-			// System.out.println(batchFile);
-			System.out.println();
-			
-      JSONArray batches = showBatches(apiToken);
-			int numOfBatches = batches.length();
-			System.out.println("Number of Batches = " + numOfBatches);
-			if ( numOfBatches > 0 ) {
-				for (int i = 0; i < numOfBatches; i = i + 1) {
-					JSONObject batch = batches.getJSONObject(i);
-					System.out.println("Batch:  " + batch.getInt("id") + ", " + 
-														  batch.getString("name") + " (files = " + batch.getInt("file_count") + ")");
-					// System.out.println(batch.toString(2));
-					// System.out.println();
-				}
-			}
-			System.out.println();
-			
-			JSONArray documents = showDocuments(apiToken);
-			int numOfDocuments = documents.length();
-			System.out.println("Number of Documents = " + numOfDocuments);
-			if ( numOfDocuments > 0 ) {
-				for (int i = 0; i < numOfDocuments; i = i + 1) {
-					JSONObject doc = documents.getJSONObject(i);
-					System.out.println("Template:  " + doc.getInt("id") + ", " + doc.getString("name"));
-					// System.out.println(doc.toString(2));
-					// System.out.println();
-				}
-			}
-			System.out.println();
-			
-      return;
-    } catch (Throwable t) {
-      t.printStackTrace();
-    }
-    System.exit(1);
-  }
 }
