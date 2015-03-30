@@ -17,7 +17,7 @@ public class TestCaptricityClient {
 			System.out.println();
 
 			JSONObject batchFile = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation);
-			System.out.println("Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
+			System.out.println("Added Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
 			// System.out.println(batchFile);
 			System.out.println();
 			
