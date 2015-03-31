@@ -19,3 +19,7 @@ In order to use this code, you will also need a Captricity API Token.
 
 [org.json](http://central.maven.org/maven2/org/json/json/20140107/json-20140107.jar)
 
+### In the works...
+- Ant build file
+- jar file for com.captricity.api
+- Additional methods for Captricity API functionality
