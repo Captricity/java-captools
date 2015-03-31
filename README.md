@@ -1,7 +1,13 @@
 # java-captools
-Captricity API client written in Java
+####Captricity API Client Library written in Java
 
-Very basic functionality at this point.  Currently, this script demonstrates how to create a batch, add a batch file to that batch and list existing unprocessed batches and templates.
+Very basic functionality at this point.  Currently, the TestCaptricityClient.java program demonstrates how to create a batch, add a batch file to that batch and list existing unprocessed batches and templates using the CaptricityClient class.
+
+Include com/captricity/api/CaptricityClient.class in your classpath,
+
+and then in your java program (such as TestCaptricityClient.java),
+
+import com.captricity.api.CaptricityClient;
 
 This code was built against Java 1.8.0_40.
 
