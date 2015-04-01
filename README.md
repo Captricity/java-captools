@@ -33,7 +33,7 @@ You can then use this client object to make method calls against the Captricity 
 		
 ### Summary of available methods
 
-```public JSONArray showBatches() throws Exception {...}```
+`public JSONArray showBatches() throws Exception {...}`
 
 * Returns a JSONArray of Batches that exist in your account.
 * Parameters
