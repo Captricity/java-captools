@@ -44,17 +44,17 @@ You can then use this client object to make method calls against the Captricity 
 
 * Returns a JSONObject representing the Batch that was created by the method call.
 * Parameters
-  * String name - 
-	* *Boolean* sorting\_enabled \-
-	* *Boolean* is\_sorting\_only \- 
+  * String name - Provide a name for the Batch you are creating
+	* Boolean sorting\_enabled \- Set to true to enable sorting for this Batch
+	* Boolean is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
 
 <br/>
 `public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}`
 	
 * Returns a JSONObject representing the Batch File that was just added to the specified Batch by the method call.
 * Parameters
-  * *int* batchID \- 
-	* *String* fileName \- 
+  * int batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
+	* String fileName \- Full pathname of the file on your local file system
 
 <br/>
 `public JSONArray showDocuments() throws Exception {...}`
