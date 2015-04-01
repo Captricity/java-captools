@@ -7,7 +7,7 @@ public class TestCaptricityClient {
     try {
 			String apiToken = System.getenv("TEST_API_TOKEN");
 			String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
-			String testBatchName = "Test Java Batch-1";
+			String testBatchName = "Test Java Batch-jar";
 			
 			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
