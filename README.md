@@ -1,7 +1,13 @@
 # java-captools
-####Captricity API Client Library written in Java
+#### Captricity API Client library written in Java
 
-Very basic functionality at this point.  Currently, the TestCaptricityClient.java program demonstrates how to create a batch, add a batch file to that batch and list existing unprocessed batches and templates using the CaptricityClient class.
+Currently, the Captricity API Client library provides methods to accomplish the following:
+* how to create a Batch,
+* adding a Batch File to a Batch,
+* showing a list of ready Batches in the account and
+* showing a list of Documents (master templates) in the accounty
+
+I have also provided a TestCaptricityClient.java that calls each method to demonstrate how the code words in a consistent environment.
 
 ### Instructions for use
 
@@ -9,27 +15,35 @@ This code was built against Java 1.8.0_40 and uses ant 1.9.4 for the build tool.
 
 From the base of the directory, type
 
-    ant jar
+```
+ant jar
+```
 
-A jar file named captricity-1.0.jar will be generated in the base directory.
+A jar file named **captricity-1.0.jar** will be generated in the base directory.
 
 Copy/move the captricity-1.0.jar file into your classpath.
 
 and then in your java program, like is done in the example code-- TestCaptricityClient.java,
 
-    import com.captricity.api.CaptricityClient;
+```
+import com.captricity.api.CaptricityClient;
+```
 
 In order to use this code, you will also need a Captricity API Token.
 
 To instantiate a Captricity API client object, use something like this:
 
-    CaptricityClient capClient = new CaptricityClient('6cf43...88b75');
+```
+CaptricityClient capClient = new CaptricityClient('6cf43...88b75');
+```
 
 where the parameter is your Captricity API token.
 
 You can then use this client object to make method calls against the Captricity API, such as shown in the example below:
 
-    JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
+```
+JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
+```
 		
 ### Summary of available methods
 
