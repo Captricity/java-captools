@@ -182,6 +182,39 @@ public class CaptricityClient {
 		return response;
 	}
 	
+	public int getJobStatus(int jobID) throws Exception {
+		String getJobUri = "https://shreddr.captricity.com/api/v1/job/" + jobID;
+    JSONObject response = makeGetObjectCall(getJobUri);
+		int percent_complete = response.getInt("percent_completed");
+		return percent_complete;
+	}
+	
+	public String getJobResults(int jobID) throws Exception {
+		CloseableHttpClient client = HttpClients.createDefault();
+		try {
+			int jobStatus = getJobStatus(jobID);
+			if ( jobStatus == 100 ) {
+				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/");
+				getRequest.addHeader("Captricity-API-Token", apiToken);
+			
+				CloseableHttpResponse response = client.execute(getRequest);
+				HttpEntity entity = response.getEntity();
+				if (entity != null) {
+					String results_string = EntityUtils.toString(entity);
+					return results_string;
+		    }
+			} else {
+				return new String("Job is only " + jobStatus + "% complete at this time.");
+			}
+			
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  } finally {
+			client.close();
+	  }
+		return new String("There were no job results found for the specified Job ID.");
+	}
+	
 	public JSONArray showDocuments() throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
 		JSONArray response = makeGetArrayCall(documentsUri);

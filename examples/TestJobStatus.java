@@ -26,6 +26,9 @@ public class TestJobStatus {
 					System.out.println("File Count: " + batch.getInt("file_count"));
 					if ( ! batch.isNull("related_job_id") ) {
 						System.out.println("Related Job ID: " + batch.getInt("related_job_id"));
+						System.out.println("Job Results:");
+						String jobResults = capClient.getJobResults(batch.getInt("related_job_id"));
+						System.out.println(jobResults);
 					}
 					// System.out.println(": " + batch.getString(""));
 					// System.out.println(": " + batch.getString(""));
@@ -33,7 +36,7 @@ public class TestJobStatus {
 					// System.out.println(": " + batch.getString(""));
 					System.out.println();
 					// System.out.println(batch.toString(2));
-					System.out.println();
+					// System.out.println();
 				}
 			}
 			System.out.println();
