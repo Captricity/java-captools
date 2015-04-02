@@ -16,10 +16,10 @@ public class TestDeleteClient {
 			System.out.println();
 						
       JSONArray batchesBefore = capClient.showBatches();
-			int numOfBatches = batchesBefore.length();
-			System.out.println("Number of Batches = " + numOfBatches);
-			if ( numOfBatches > 0 ) {
-				for (int i = 0; i < numOfBatches; i = i + 1) {
+			int numOfBatchesBefore = batchesBefore.length();
+			System.out.println("Number of Batches = " + numOfBatchesBefore);
+			if ( numOfBatchesBefore > 0 ) {
+				for (int i = 0; i < numOfBatchesBefore; i = i + 1) {
 					JSONObject batch = batchesBefore.getJSONObject(i);
 					System.out.println("Batch:  " + batch.getInt("id") + ", " + 
 														  batch.getString("name") + " (files = " + batch.getInt("file_count") + ") - " +
@@ -31,15 +31,15 @@ public class TestDeleteClient {
 			System.out.println();
 			
 			// call to delete new batch
-			// JSONObject status = capClient.deleteBatch(newBatch.getInt("id"));
-			// System.out.println(status.toString(2));
-			// System.out.println();
+			JSONObject status = capClient.deleteBatch(newBatch.getInt("id"));
+			System.out.println(status.toString(2));
+			System.out.println();
 			
       JSONArray batchesAfter = capClient.showBatches();
-			int numOfBatches = batchesAfter.length();
-			System.out.println("Number of Batches = " + numOfBatches);
-			if ( numOfBatches > 0 ) {
-				for (int i = 0; i < numOfBatches; i = i + 1) {
+			int numOfBatchesAfter = batchesAfter.length();
+			System.out.println("Number of Batches = " + numOfBatchesAfter);
+			if ( numOfBatchesAfter > 0 ) {
+				for (int i = 0; i < numOfBatchesAfter; i = i + 1) {
 					JSONObject batch = batchesAfter.getJSONObject(i);
 					System.out.println("Batch:  " + batch.getInt("id") + ", " + 
 														  batch.getString("name") + " (files = " + batch.getInt("file_count") + ") - " +

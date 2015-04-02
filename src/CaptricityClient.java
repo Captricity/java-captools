@@ -7,6 +7,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -21,7 +22,7 @@ public class CaptricityClient {
 		apiToken = token;
 	}
 	
-	private JSONArray makeGetCall(String target) throws Exception {
+	private JSONArray makeGetArrayCall(String target) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			HttpGet getRequest = new HttpGet(target);
@@ -40,6 +41,27 @@ public class CaptricityClient {
 			client.close();
 	  }
 		return new JSONArray();
+	}
+	
+	private JSONObject makeGetObjectCall(String target) throws Exception {
+		CloseableHttpClient client = HttpClients.createDefault();
+		try {
+			HttpGet getRequest = new HttpGet(target);
+			getRequest.addHeader("Captricity-API-Token", apiToken);
+			
+			CloseableHttpResponse response = client.execute(getRequest);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				String json_string = EntityUtils.toString(entity);
+				return new JSONObject(json_string);
+	    } 
+			
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  } finally {
+			client.close();
+	  }
+		return new JSONObject();
 	}
 	
 	private JSONObject makePostCall(String target, JSONObject payload) throws Exception {
@@ -67,9 +89,34 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
+	private JSONObject makeDeleteCall(String target) throws Exception {
+		CloseableHttpClient client = HttpClients.createDefault();
+		try {
+			HttpDelete deleteRequest = new HttpDelete(target);
+			deleteRequest.addHeader("Captricity-API-Token", apiToken);
+			// add payload to the mix
+			// StringEntity input = new StringEntity(payload.toString());
+			// input.setContentType("application/json");
+			// deleteRequest.setEntity(input);
+			
+			CloseableHttpResponse response = client.execute(deleteRequest);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				String json_string = EntityUtils.toString(entity);
+				return new JSONObject(json_string);
+	    }
+			
+	  } catch (Exception e) {
+	    e.printStackTrace();
+	  } finally {
+			client.close();
+	  }
+		return new JSONObject();
+	}
+	
 	public JSONArray showBatches() throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
-    JSONArray response = makeGetCall(batchesUri);
+    JSONArray response = makeGetArrayCall(batchesUri);
 		return response;
 	}
 	
@@ -84,6 +131,19 @@ public class CaptricityClient {
 		return response;
 	}
 	
+	public JSONObject readBatch(int batchID) throws Exception {
+		String readBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID;
+    JSONObject response = makeGetObjectCall(readBatchUri);
+		return response;
+	}
+	
+	public JSONObject deleteBatch(int batchID) throws Exception {
+		String deleteBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID;
+		// JSONObject payload = new JSONObject();
+		JSONObject response = makeDeleteCall(deleteBatchUri);
+		return response;
+	}
+	
 	public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
@@ -93,11 +153,11 @@ public class CaptricityClient {
 			postRequest.addHeader("Captricity-API-Token", apiToken);
 			
 			HttpEntity input = MultipartEntityBuilder
-			 .create()
-			 .addTextBody("uploaded_with", "api")
-			 .addTextBody("file_name", new_batch_file.getName())
-			 .addBinaryBody("uploaded_file", new_batch_file)
-			 .build();
+				.create()
+				.addTextBody("uploaded_with", "api")
+				.addTextBody("file_name", new_batch_file.getName())
+				.addBinaryBody("uploaded_file", new_batch_file)
+				.build();
 			postRequest.setEntity(input);
 			
 			CloseableHttpResponse response = client.execute(postRequest);
@@ -124,7 +184,7 @@ public class CaptricityClient {
 	
 	public JSONArray showDocuments() throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
-		JSONArray response = makeGetCall(documentsUri);
+		JSONArray response = makeGetArrayCall(documentsUri);
 		return response;
 	}
 }
