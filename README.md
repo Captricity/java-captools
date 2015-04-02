@@ -55,7 +55,6 @@ public JSONArray showBatches() throws Exception {...}
 * Parameters:
   - *None*
 
-<br/>
 ```
 public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
 ```
@@ -67,7 +66,6 @@ public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_s
   - *Boolean* sorting\_enabled \- Set to true to enable sorting for this Batch
   - *Boolean* is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
 
-<br/>
 ```
 public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
 ```
