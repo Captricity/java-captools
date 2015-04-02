@@ -40,7 +40,7 @@ CaptricityClient capClient = new CaptricityClient('6cf43...88b75');
 
 where the parameter is your Captricity API token.
 
-You can then use this client object to make method calls against the Captricity API, such as shown in the example below:
+You can then use this client object to make method calls against the Captricity API, as is shown in the example below:
 
 ```java
 JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
@@ -77,10 +77,10 @@ public JSONObject addFileToBatch(int batchID, String fileName) throws Exception 
 ```java
 public JSONObject submitBatch(int batchID) throws Exception {...}
 ```
-* Submit the Batch specified by the batchID parameter for processing.
+* Submits the Batch specified by the batchID parameter for processing.
 * Returns a `JSONObject` representing the Batch that was submitted for processing.
 * Parameters:
-	- `int batchID` \- Batch ID of the Batch to you want to submit for processing
+  - `int batchID` \- Batch ID of the Batch you want to submit for processing
 
 ```java
 public JSONArray showDocuments() throws Exception {...}
