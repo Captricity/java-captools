@@ -33,14 +33,18 @@ You can then use this client object to make method calls against the Captricity 
 		
 ### Summary of available methods
 
-`public JSONArray showBatches() throws Exception {...}`
+```
+public JSONArray showBatches() throws Exception {...}
+```
 
 * Returns a JSONArray of Batches that exist in your account.
 * Parameters
   - None
 
 <br/>
-`public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}`
+```
+    public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
+```
 
 * Returns a JSONObject representing the Batch that was created by the method call.
 * Parameters
@@ -49,7 +53,9 @@ You can then use this client object to make method calls against the Captricity 
   - Boolean is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
 
 <br/>
-`public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}`
+```
+public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
+```
 	
 * Returns a JSONObject representing the Batch File that was just added to the specified Batch by the method call.
 * Parameters
@@ -57,7 +63,9 @@ You can then use this client object to make method calls against the Captricity 
   - String fileName \- Full pathname of the file on your local file system
 
 <br/>
-`public JSONArray showDocuments() throws Exception {...}`
+```
+public JSONArray showDocuments() throws Exception {...}
+```
 
 * Returns a JSONArray of Documents (master templates) that exist in your account.
 * Parameters
