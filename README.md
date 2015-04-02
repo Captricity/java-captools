@@ -50,7 +50,6 @@ JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
 ```
 public JSONArray showBatches() throws Exception {...}
 ```
-
 * Returns a JSONArray of the Batches that exist in your account.
 * Parameters:
   - *None*
@@ -58,7 +57,6 @@ public JSONArray showBatches() throws Exception {...}
 ```
 public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
 ```
-
 * Creates a Batch in accordance with the given name and properties.
 * Returns a JSONObject representing the Batch that was created by the method call.
 * Parameters:
@@ -69,18 +67,15 @@ public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_s
 ```
 public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
 ```
-
 * Adds the file found at the given pathname to the Batch with the specified Batch ID.
 * Returns a JSONObject representing the Batch File that was just added to the specified Batch by the method call.
 * Parameters:
   - *int* batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
   - *String* fileName \- Full pathname of the file on your local file system
 
-<br/>
 ```
 public JSONArray showDocuments() throws Exception {...}
 ```
-
 * Returns a JSONArray of the Documents (master templates) that exist in your account.
 * Parameters:
   - *None*
