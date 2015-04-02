@@ -5,9 +5,9 @@ Currently, the Captricity API Client library provides methods to accomplish the 
 * Create a Batch,
 * Add a Batch File to the Batch,
 * Show a list of ready Batches in the account and
-* Show a list of Documents (master templates) in the accounty
+* Show a list of Documents (master templates) in the account
 
-I have also provided a TestCaptricityClient.java that calls each method to demonstrate how the code works in a consistent environment.
+I have also provided a TestCaptricityClient.java program that calls each method to demonstrate how the code works in a consistent environment.
 
 ### Instructions for use
 
@@ -44,24 +44,25 @@ You can then use this client object to make method calls against the Captricity 
 ```
 JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
 ```
-		
+
 ### Summary of available methods
 
 ```
 public JSONArray showBatches() throws Exception {...}
 ```
 
-* Returns a JSONArray of Batches that exist in your account.
-* Parameters
+* Returns a JSONArray of the Batches that exist in your account.
+* Parameters:
   - *None*
 
 <br/>
 ```
-    public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
+public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
 ```
 
+* Creates a Batch in accordance with the given name and properties.
 * Returns a JSONObject representing the Batch that was created by the method call.
-* Parameters
+* Parameters:
   - *String* name - Provide a name for the Batch you are creating
   - *Boolean* sorting\_enabled \- Set to true to enable sorting for this Batch
   - *Boolean* is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
@@ -70,9 +71,10 @@ public JSONArray showBatches() throws Exception {...}
 ```
 public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
 ```
-	
+
+* Adds the file found at the given pathname to the Batch with the specified Batch ID.
 * Returns a JSONObject representing the Batch File that was just added to the specified Batch by the method call.
-* Parameters
+* Parameters:
   - *int* batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
   - *String* fileName \- Full pathname of the file on your local file system
 
@@ -81,8 +83,8 @@ public JSONObject addFileToBatch(int batchID, String fileName) throws Exception 
 public JSONArray showDocuments() throws Exception {...}
 ```
 
-* Returns a JSONArray of Documents (master templates) that exist in your account.
-* Parameters
+* Returns a JSONArray of the Documents (master templates) that exist in your account.
+* Parameters:
   - *None*
 
 ### Dependencies
