@@ -7,7 +7,7 @@ public class TestCaptricityClient {
     try {
 			String apiToken = System.getenv("TEST_API_TOKEN");
 			String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
-			String testBatchName = "Java Batch Submit Test 1";
+			String testBatchName = "Java Batch Submit Test 2";
 			
 			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
@@ -22,8 +22,9 @@ public class TestCaptricityClient {
 			System.out.println();
 			
 			JSONObject submitBatch = capClient.submitBatch(newBatch.getInt("id"));
-			// System.out.println("New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
-			System.out.println(submitBatch);
+			System.out.println("Submitted Batch:  " + submitBatch.getInt("id") + ", " + submitBatch.getString("name") + 
+														" - " + submitBatch.getString("status"));
+			// System.out.println(submitBatch);
 			System.out.println();
 			
       JSONArray batches = capClient.showBatches();

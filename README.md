@@ -2,9 +2,10 @@
 #### Captricity API Client library written in Java
 
 Currently, the Captricity API Client library provides methods to accomplish the following:
-* Create a Batch,
-* Add a Batch File to the Batch,
-* Show a list of ready Batches in the account
+* Create a Batch
+* Add Batch Files to the Batch
+* Submit the Batch for processing
+* Show a list of Batches in the account
 * Show a list of Documents (master templates) in the account
 
 I have also provided a TestCaptricityClient.java program that calls each method to demonstrate how the code works in a controlled environment.
@@ -72,6 +73,14 @@ public JSONObject addFileToBatch(int batchID, String fileName) throws Exception 
 * Parameters:
   - *int* batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
   - *String* fileName \- Full pathname of the file on your local file system
+
+```
+public JSONObject submitBatch(int batchID) throws Exception {...}
+```
+* Submit the Batch specified by the batchID parameter for processing.
+* Returns a JSONObject representing the Batch that was submitted for processing.
+* Parameters:
+	- *int* batchID \- Batch ID of the Batch to you want to submit for processing
 
 ```
 public JSONArray showDocuments() throws Exception {...}
