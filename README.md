@@ -15,7 +15,7 @@ A jar file named captricity-1.0.jar will be generated in the base directory.
 
 Copy/move the captricity-1.0.jar file into your classpath.
 
-and then in your java program, such as TestCaptricityClient.java,
+and then in your java program, like is done in the example code-- TestCaptricityClient.java,
 
     import com.captricity.api.CaptricityClient;
 
@@ -39,7 +39,7 @@ public JSONArray showBatches() throws Exception {...}
 
 * Returns a JSONArray of Batches that exist in your account.
 * Parameters
-  - None
+  - *None*
 
 <br/>
 ```
@@ -48,9 +48,9 @@ public JSONArray showBatches() throws Exception {...}
 
 * Returns a JSONObject representing the Batch that was created by the method call.
 * Parameters
-  - String name - Provide a name for the Batch you are creating
-  - Boolean sorting\_enabled \- Set to true to enable sorting for this Batch
-  - Boolean is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
+  - *String* name - Provide a name for the Batch you are creating
+  - *Boolean* sorting\_enabled \- Set to true to enable sorting for this Batch
+  - *Boolean* is\_sorting\_only \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
 
 <br/>
 ```
@@ -59,8 +59,8 @@ public JSONObject addFileToBatch(int batchID, String fileName) throws Exception 
 	
 * Returns a JSONObject representing the Batch File that was just added to the specified Batch by the method call.
 * Parameters
-  - int batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
-  - String fileName \- Full pathname of the file on your local file system
+  - *int* batchID \- Batch ID of the Batch to which you want to add file (this can be obtained from the resulting JSONObject after you create a Batch)
+  - *String* fileName \- Full pathname of the file on your local file system
 
 <br/>
 ```
@@ -69,7 +69,7 @@ public JSONArray showDocuments() throws Exception {...}
 
 * Returns a JSONArray of Documents (master templates) that exist in your account.
 * Parameters
-  - None
+  - *None*
 
 ### Dependencies
 
