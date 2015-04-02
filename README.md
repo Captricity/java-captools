@@ -8,6 +8,8 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * add Batch Files to the Batch
 * submit the Batch for processing
 * show a list of Batches in the account
+* get Job status (percent completed)
+* get Job results (for Jobs that are 100% complete)
 * show a list of Documents (master templates) in the account
 
 I have also provided a number of example programs that demonstrate how the API client library works in a controlled environment.  You can find these programs in the examples folder.
@@ -99,6 +101,22 @@ public JSONObject submitBatch(int batchID) throws Exception {...}
 * Returns a `JSONObject` representing the Batch that was submitted for processing.
 * Parameters:
   - `int batchID` \- Batch ID of the Batch you want to submit for processing
+
+```java
+public int getJobStatus(int jobID) throws Exception {...}
+```
+* Gets the percent completed value for the Job specified by the jobID parameter.
+* Returns an `int` representing the percent completed.
+* Parameters:
+  - `int jobID` \- Job ID of the Job in question
+
+```java
+public String getJobResults(int jobID) throws Exception {...}
+```
+* Gets the results of the Job specified by the jobID parameter.
+* Returns a `String` representing the CSV output of the Job results, or indicates that the Job is not 100% complete.
+* Parameters:
+  - `int jobID` \- Job ID of the Job in question
 
 ```java
 public JSONArray showDocuments() throws Exception {...}
