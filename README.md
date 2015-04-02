@@ -95,5 +95,5 @@ public JSONArray showDocuments() throws Exception {...}
 
 [org.json](http://central.maven.org/maven2/org/json/json/20140107/json-20140107.jar)
 
-### In the works...
-- Additional methods for Captricity API functionality
+### To-Do List...
+- Add methods for more Captricity API functionality
