@@ -3,6 +3,8 @@
 
 Currently, the Captricity API client library provides methods to accomplish the following:
 * create a Batch
+* read (get) a Batch
+* delete a Batch
 * add Batch Files to the Batch
 * submit the Batch for processing
 * show a list of Batches in the account
@@ -64,6 +66,22 @@ public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_s
   - `String name` - Provide a name for the Batch you are creating
   - `Boolean sorting_enabled` \- Set to true to enable sorting for this Batch
   - `Boolean is_sorting_only` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
+
+```java
+public JSONObject readBatch(int batchID) throws Exception {...}
+```
+* Gets the Batch specified by the batchID parameter.
+* Returns a `JSONObject` representing the Batch.
+* Parameters:
+  - `int batchID` \- Batch ID of the Batch you want to get
+
+```java
+public JSONObject deleteBatch(int batchID) throws Exception {...}
+```
+* Deletes the Batch specified by the batchID parameter.
+* Returns a `JSONObject` representing the status of the delete request.
+* Parameters:
+  - `int batchID` \- Batch ID of the Batch you want to delete
 
 ```java
 public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
