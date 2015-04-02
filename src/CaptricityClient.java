@@ -115,6 +115,13 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
+	public JSONObject submitBatch(int batchID) throws Exception {
+		String submitBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID + "/submit";
+		JSONObject payload = new JSONObject();
+		JSONObject response = makePostCall(submitBatchUri, payload);
+		return response;
+	}
+	
 	public JSONArray showDocuments() throws Exception {
 		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
 		JSONArray response = makeGetCall(documentsUri);
