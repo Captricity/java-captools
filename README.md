@@ -8,7 +8,7 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * show a list of Batches in the account
 * show a list of Documents (master templates) in the account
 
-I have also provided a TestCaptricityClient.java program that calls each method to demonstrate how the code works in a controlled environment.
+I have also provided a number of example programs that demonstrate how the API client library works in a controlled environment.  You can find these programs in the examples folder.
 
 ### Instructions for use
 
