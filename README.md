@@ -1,7 +1,7 @@
 # java-captools
-#### Captricity API Client library written in Java
+#### Captricity API client library written in Java
 
-Currently, the Captricity API Client library provides methods to accomplish the following:
+Currently, the Captricity API client library provides methods to accomplish the following:
 * create a Batch
 * add Batch Files to the Batch
 * submit the Batch for processing
