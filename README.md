@@ -2,16 +2,16 @@
 #### Captricity API Client library written in Java
 
 Currently, the Captricity API Client library provides methods to accomplish the following:
-* how to create a Batch,
-* adding a Batch File to a Batch,
-* showing a list of ready Batches in the account and
-* showing a list of Documents (master templates) in the accounty
+* Create a Batch,
+* Add a Batch File to the Batch,
+* Show a list of ready Batches in the account and
+* Show a list of Documents (master templates) in the accounty
 
-I have also provided a TestCaptricityClient.java that calls each method to demonstrate how the code words in a consistent environment.
+I have also provided a TestCaptricityClient.java that calls each method to demonstrate how the code works in a consistent environment.
 
 ### Instructions for use
 
-This code was built against Java 1.8.0_40 and uses ant 1.9.4 for the build tool.
+This code was built against **Java 1.8.0\_40** and uses **ant 1.9.4** for the build tool.
 
 From the base of the directory, type
 
