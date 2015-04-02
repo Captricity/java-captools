@@ -4,10 +4,10 @@
 Currently, the Captricity API Client library provides methods to accomplish the following:
 * Create a Batch,
 * Add a Batch File to the Batch,
-* Show a list of ready Batches in the account and
+* Show a list of ready Batches in the account
 * Show a list of Documents (master templates) in the account
 
-I have also provided a TestCaptricityClient.java program that calls each method to demonstrate how the code works in a consistent environment.
+I have also provided a TestCaptricityClient.java program that calls each method to demonstrate how the code works in a controlled environment.
 
 ### Instructions for use
 
