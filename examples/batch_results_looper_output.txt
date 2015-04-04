@@ -30,7 +30,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
@@ -40,7 +40,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
@@ -50,7 +50,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
@@ -60,7 +60,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
@@ -70,7 +70,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
@@ -80,7 +80,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -90,7 +90,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -100,7 +100,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -110,7 +110,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -120,7 +120,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -130,7 +130,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -140,7 +140,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -150,7 +150,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -160,7 +160,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -170,7 +170,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -180,7 +180,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -190,7 +190,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -200,7 +200,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -210,7 +210,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -220,7 +220,7 @@ Status: processed
 File Count: 1
 Is digitized: false
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
@@ -230,7 +230,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -241,7 +241,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -252,7 +252,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -263,7 +263,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -274,7 +274,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -285,7 +285,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -296,7 +296,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
@@ -307,7 +307,7 @@ Status: processed
 File Count: 1
 Is digitized: true
 Looking for child Batches resulting from sorting...
-72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
+72859:  Java Batch Results Test 1-1 - TaxForm1040 Template
 Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
