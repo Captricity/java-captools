@@ -131,6 +131,10 @@ public class CaptricityClient {
 		return response;
 	}
 	
+  public JSONObject createBatch(String name) throws Exception {
+    return createBatch(name, true, false);
+  }
+  
 	public JSONObject readBatch(int batchID) throws Exception {
 		String readBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID;
     JSONObject response = makeGetObjectCall(readBatchUri);
@@ -182,6 +186,111 @@ public class CaptricityClient {
 		return response;
 	}
 	
+  public String getBatchResults(int batchID, Boolean verboseResults) throws Exception {
+    StringBuilder results = new StringBuilder();
+    JSONObject batch = readBatch(batchID);
+		
+    if ( batch.isNull("parent_id") ) {
+      // indicates original batch submitted by customer...
+      
+      if ( verboseResults ) {
+        results.append("Batch:  " + batch.getInt("id") + "\n");
+        results.append("Name: " + batch.getString("name") + "\n");
+        results.append("Status: " + batch.getString("status") + "\n");
+        results.append("File Count: " + batch.getInt("file_count") + "\n");
+        results.append("Is digitized: " + batch.getBoolean("is_digitized") + "\n");
+      }
+      
+      if ( batch.getBoolean("is_digitized") ) {
+        
+        if ( ! batch.isNull("related_job_id") ) {
+          
+          if ( verboseResults ) {
+            results.append("Related Job ID: " + batch.getInt("related_job_id") + " results:\n");
+          }
+          String jobResults = getJobResults(batch.getInt("related_job_id"));
+          results.append(jobResults);
+        
+        } else {
+          
+          if ( verboseResults ) {
+            results.append("Looking for child Batches resulting from sorting...\n");
+          }
+          JSONArray children = batch.getJSONArray("children_ids");
+          if ( children.length() > 0 ) {
+            for (int j=0; j < children.length(); j++) {
+              int childBatchId = children.getInt(j);
+              JSONObject childBatch = readBatch(childBatchId);
+              if ( verboseResults ) {
+                results.append(childBatch.getInt("id") + ":  " + childBatch.getString("name") + "\n");
+              }
+              if ( ! childBatch.isNull("related_job_id") ) {
+                if ( verboseResults ) {
+                  results.append("Related Job ID: " + childBatch.getInt("related_job_id") + " results:\n");
+                }
+                String jobResults = getJobResults(childBatch.getInt("related_job_id"));
+                results.append(jobResults);
+              }
+            }
+          
+          } else {
+            // No child Batches present...
+            results.append("No results found.\n");
+          }
+        }
+        
+      } else {
+        // is_digitized is false
+        
+        int rejectCount = 0;
+        if ( verboseResults ) {
+          results.append("Looking for child Batches resulting from sorting...\n");
+        }
+        JSONArray children = batch.getJSONArray("children_ids");
+        if ( children.length() > 0 ) {
+          for (int k=0; k < children.length(); k++) {
+            int childBatchId = children.getInt(k);
+            JSONObject childBatch = readBatch(childBatchId);
+            if ( verboseResults ) {
+              results.append(childBatch.getInt("id") + ":  " + childBatch.getString("name") + "\n");
+            }
+            if ( childBatch.getString("status").equals("rejected") ) {
+              if ( verboseResults ) {
+                results.append(childBatch.getString("status") + "\n");
+              }
+              rejectCount++;
+            } else if ( ! childBatch.isNull("related_job_id") ) {
+              int jobStatus = getJobStatus(childBatch.getInt("related_job_id"));
+              if ( verboseResults ) {
+                results.append("Related Job ID: " + childBatch.getInt("related_job_id") + " (" + jobStatus + "% complete)\n");
+              }
+            } else {
+              if ( verboseResults ) {
+                results.append(childBatch.getString("status") + "\n");
+              }
+            }
+          }
+        } else {
+          // No child Batches present...
+          results.append("No results found.\n");
+        }
+        if ( rejectCount == children.length() ) {
+          results.append("This Batch contained no matching documents.\n");
+        } else {
+          results.append("Batch has not finished digitization yet.\n");
+        }
+      }
+    } else {
+      // case of an internal child batch -- don't want to show anything for this type of batch
+      results.append("");
+    }
+    return results.toString();
+  }
+  
+  public String getBatchResults(int batchID) throws Exception {
+    return getBatchResults(batchID, false);
+  }
+  
 	public int getJobStatus(int jobID) throws Exception {
 		String getJobUri = "https://shreddr.captricity.com/api/v1/job/" + jobID;
     JSONObject response = makeGetObjectCall(getJobUri);
