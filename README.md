@@ -7,6 +7,7 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * delete a Batch
 * add Batch Files to the Batch
 * submit the Batch for processing
+* get results for a specific Batch
 * show a list of Batches in the account
 * get Job status (percent completed)
 * get Job results (for Jobs that are 100% complete)
@@ -60,14 +61,15 @@ public JSONArray showBatches() throws Exception {...}
   - *None*
 
 ```java
+public JSONObject createBatch(String name) throws Exception {...}
 public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
 ```
 * Creates a Batch in accordance with the given name and properties.
 * Returns a `JSONObject` representing the Batch that was created by the method call.
 * Parameters:
   - `String name` - Provide a name for the Batch you are creating
-  - `Boolean sorting_enabled` \- Set to true to enable sorting for this Batch
-  - `Boolean is_sorting_only` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction)
+  - `Boolean sorting_enabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
+  - `Boolean is_sorting_only` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
 
 ```java
 public JSONObject readBatch(int batchID) throws Exception {...}
@@ -101,6 +103,16 @@ public JSONObject submitBatch(int batchID) throws Exception {...}
 * Returns a `JSONObject` representing the Batch that was submitted for processing.
 * Parameters:
   - `int batchID` \- Batch ID of the Batch you want to submit for processing
+
+```java
+public String getBatchResults(int batchID) throws Exception {...}
+public String getBatchResults(int batchID, Boolean verboseResults) throws Exception {...}
+```
+* Gets the results for the Batch specified by the batchID parameter.
+* Returns a `String` representing the CSV output of the Batch results, or indicates current status otherwise.
+* Parameters:
+  - `int batchID` \- Batch ID of the Batch for which you want to obtain results.
+  - `Boolean verboseResults` \- Set to true to enable verbose results output.  The default value is `false` if not specified.
 
 ```java
 public int getJobStatus(int jobID) throws Exception {...}
