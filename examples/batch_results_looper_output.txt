@@ -1,8 +1,8 @@
-Created New Batch:  72858, Java Batch Results Test 1-1
+Created New Batch:  72858, Java Batch Results Test 1-1
 
-Added Batch File:  EZ-return1.pdf, 896cabb3-1f24-47c2-8b56-5b24c35c1d1d
+Added Batch File:  EZ-return1.pdf, 896cabb3-1f24-47c2-8b56-5b24c35c1d1d
 
-Submitted Batch:  72858, Java Batch Results Test 1-1 - processing
+Submitted Batch:  72858, Java Batch Results Test 1-1 - processing
 
 Start checking Batch results...
 
