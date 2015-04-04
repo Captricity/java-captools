@@ -6,7 +6,7 @@ Submitted Batch:  72858, Java Batch Results Test 1-1 - processing
 
 Start checking Batch results...
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processing
 File Count: 1
@@ -15,7 +15,7 @@ Looking for child Batches resulting from sorting...
 No results found.
 This Batch contained no matching documents.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: sorting
 File Count: 1
@@ -24,7 +24,7 @@ Looking for child Batches resulting from sorting...
 No results found.
 This Batch contained no matching documents.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -34,7 +34,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -44,7 +44,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -54,7 +54,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -64,7 +64,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -74,7 +74,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (0% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -84,7 +84,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -94,7 +94,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -104,7 +104,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -114,7 +114,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -124,7 +124,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -134,7 +134,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -144,7 +144,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -154,7 +154,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -164,7 +164,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -174,7 +174,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -184,7 +184,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -194,7 +194,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -204,7 +204,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -214,7 +214,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -224,7 +224,7 @@ Looking for child Batches resulting from sorting...
 Related Job ID: 117864 (20% complete)
 Batch has not finished digitization yet.
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -235,7 +235,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -246,7 +246,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -257,7 +257,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -268,7 +268,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -279,7 +279,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -290,7 +290,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1
@@ -301,7 +301,7 @@ Related Job ID: 117864 results:
 name,Primary Last Name,Secondary Last Name,Block SSN,Filing Status,AGI,Form Number 
 EZ-return1-page1.png,Smith,Smith,--redacted--,--blank--,30000,Form 1040EZ (2014) 
 
-Batch:  72858
+Batch:  72858
 Name: Java Batch Results Test 1-1
 Status: processed
 File Count: 1

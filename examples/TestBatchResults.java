@@ -10,14 +10,14 @@ public class TestBatchResults {
 			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
       JSONArray batches = capClient.showBatches();
-			int numOfBatches = batches.length();
-			System.out.println("Number of Batches = " + numOfBatches);
-			System.out.println();
+			// int numOfBatches = batches.length();
+      // System.out.println("Number of Batches = " + numOfBatches);
+      // System.out.println();
 			
-			if ( numOfBatches > 0 ) {
-				for (int i = 0; i < numOfBatches; i = i + 1) {
+			if ( batches.length() > 0 ) {
+				for (int i = 0; i < batches.length(); i = i + 1) {
 					JSONObject batch = batches.getJSONObject(i);
-					String results = capClient.getBatchResults(batch.getInt("id"));
+					String results = capClient.getBatchResults(batch.getInt("id"), true);
 					System.out.println(results);
 				}
 			}
