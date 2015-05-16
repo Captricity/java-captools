@@ -311,7 +311,7 @@ public class CaptricityClient {
 		try {
 			int jobStatus = getJobStatus(jobID);
 			if ( jobStatus == 100 ) {
-				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/");
+				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/?include-json-metadata-column=true");
 				getRequest.addHeader("Captricity-API-Token", apiToken);
 			
 				CloseableHttpResponse response = client.execute(getRequest);

@@ -8,7 +8,7 @@ public class TestCaptricityClient {
 			String apiToken = System.getenv("TEST_API_TOKEN");
 			String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
       String testFileLocation2 = "/Users/davids/Desktop/EZ-return2.pdf";
-			String testBatchName = "Java Batch with Metadata";
+			String testBatchName = "Java Batch with Metadata II";
 			
 			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
