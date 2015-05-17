@@ -96,7 +96,7 @@ public JSONObject addFileToBatch(int batchID, String fileName, JSONObject metada
 * Parameters:
   - `int batchID` \- Batch ID of the Batch to which you want to add file (obtained from the resulting `JSONObject` after you create a Batch)
   - `String fileName` \- Full pathname of the file on your local file system
-  - `JSONObject metadata` \- A JSONObject of key:value pairs of your desired metadata for this Batch File
+  - `JSONObject metadata` \- A `JSONObject` containing key:value pairs of your desired metadata for this Batch File
 
 ```java
 public JSONObject submitBatch(int batchID) throws Exception {...}
