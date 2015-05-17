@@ -8,7 +8,7 @@ public class TestCaptricityClient {
 			String apiToken = System.getenv("TEST_API_TOKEN");
 			String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
       String testFileLocation2 = "/Users/davids/Desktop/EZ-return2.pdf";
-			String testBatchName = "Java Batch with Metadata II";
+			String testBatchName = "Java Batch with Metadata 17-A";
 			
 			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
@@ -19,12 +19,15 @@ public class TestCaptricityClient {
 
 			JSONObject batchFile = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation);
 			System.out.println("Added Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
-			// System.out.println(batchFile);
+			System.out.println(batchFile);
 			System.out.println();
       
-			JSONObject batchFile2 = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation2, "{\"DCN\": \"c9269c7b-52fd-43f4-9cba-2215c8678a97\"}");
+      JSONObject meta = new JSONObject().put("DCN", "c9269c7b-52fd-43f4-9cba-2215c8678a97");
+      meta.put("sequence-id", 1);
+      
+			JSONObject batchFile2 = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation2, meta);
 			System.out.println("Added Batch File:  " + batchFile2.getString("file_name") + ", " + batchFile2.getString("uuid"));
-			// System.out.println(batchFile);
+			System.out.println(batchFile2);
 			System.out.println();
 			
       // JSONObject submitBatch = capClient.submitBatch(newBatch.getInt("id"));

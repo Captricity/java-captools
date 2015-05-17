@@ -89,12 +89,14 @@ public JSONObject deleteBatch(int batchID) throws Exception {...}
 
 ```java
 public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {...}
+public JSONObject addFileToBatch(int batchID, String fileName, JSONObject metadata) throws Exception {...}
 ```
 * Adds the file found at the given pathname to the Batch with the specified Batch ID.
 * Returns a `JSONObject` representing the Batch File that was just added to the specified Batch by the method call.
 * Parameters:
   - `int batchID` \- Batch ID of the Batch to which you want to add file (obtained from the resulting `JSONObject` after you create a Batch)
   - `String fileName` \- Full pathname of the file on your local file system
+  - `JSONObject metadata` \- A JSONObject of key:value pairs of your desired metadata for this Batch File
 
 ```java
 public JSONObject submitBatch(int batchID) throws Exception {...}

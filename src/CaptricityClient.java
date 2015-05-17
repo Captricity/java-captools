@@ -148,7 +148,7 @@ public class CaptricityClient {
 		return response;
 	}
 	
-	public JSONObject addFileToBatch(int batchID, String fileName, String metadata) throws Exception {
+	public JSONObject addFileToBatch(int batchID, String fileName, JSONObject metadata) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			File new_batch_file = new File(fileName);
@@ -159,8 +159,8 @@ public class CaptricityClient {
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 			builder.addTextBody("uploaded_with", "api");
 			builder.addTextBody("file_name", new_batch_file.getName());
-      if (metadata != null) {
-        builder.addTextBody("metadata", metadata);
+      if (metadata.length() > 0) {
+        builder.addTextBody("metadata", metadata.toString());
       }
       builder.addBinaryBody("uploaded_file", new_batch_file);
       
@@ -184,7 +184,8 @@ public class CaptricityClient {
 	}
   
   public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
-    return addFileToBatch(batchID, fileName, null);
+    JSONObject meta = new JSONObject();
+    return addFileToBatch(batchID, fileName, meta);
   }
 	
 	public JSONObject submitBatch(int batchID) throws Exception {
