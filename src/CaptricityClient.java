@@ -148,7 +148,7 @@ public class CaptricityClient {
 		return response;
 	}
 	
-	public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
+	public JSONObject addFileToBatch(int batchID, String fileName, JSONObject metadata) throws Exception {
 		CloseableHttpClient client = HttpClients.createDefault();
 		try {
 			File new_batch_file = new File(fileName);
@@ -156,12 +156,16 @@ public class CaptricityClient {
 			HttpPost postRequest = new HttpPost("https://shreddr.captricity.com/api/v1/batch/" + batchID + "/batch-file/");
 			postRequest.addHeader("Captricity-API-Token", apiToken);
 			
-			HttpEntity input = MultipartEntityBuilder
-				.create()
-				.addTextBody("uploaded_with", "api")
-				.addTextBody("file_name", new_batch_file.getName())
-				.addBinaryBody("uploaded_file", new_batch_file)
-				.build();
+      MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+			builder.addTextBody("uploaded_with", "api");
+			builder.addTextBody("file_name", new_batch_file.getName());
+      if (metadata.length() > 0) {
+        builder.addTextBody("metadata", metadata.toString());
+      }
+      builder.addBinaryBody("uploaded_file", new_batch_file);
+      
+			HttpEntity input = builder.build();
+      
 			postRequest.setEntity(input);
 			
 			CloseableHttpResponse response = client.execute(postRequest);
@@ -178,6 +182,11 @@ public class CaptricityClient {
 	  }
 		return new JSONObject();
 	}
+  
+  public JSONObject addFileToBatch(int batchID, String fileName) throws Exception {
+    JSONObject meta = new JSONObject();
+    return addFileToBatch(batchID, fileName, meta);
+  }
 	
 	public JSONObject submitBatch(int batchID) throws Exception {
 		String submitBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID + "/submit";
@@ -303,7 +312,7 @@ public class CaptricityClient {
 		try {
 			int jobStatus = getJobStatus(jobID);
 			if ( jobStatus == 100 ) {
-				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/");
+				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/?include-json-metadata-column=true");
 				getRequest.addHeader("Captricity-API-Token", apiToken);
 			
 				CloseableHttpResponse response = client.execute(getRequest);
