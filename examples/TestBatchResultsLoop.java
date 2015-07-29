@@ -41,7 +41,7 @@ public class TestBatchResultsLoop {
   }
   
   public void run() throws Exception {
-    String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
+    String testFileLocation = "/Users/davids/Documents/CLEARDTOP/API_demo/EZ-return1.pdf";
     String testBatchName = "Java Batch Results Test 1-1";
 
     JSONObject newBatch = capClient.createBatch(testBatchName);

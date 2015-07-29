@@ -1,4 +1,4 @@
-import com.captricity.api.CaptricityClient;
+import com.captricity.api.CaptricityStagingClient;
 import org.json.*;
 
 public class TestCaptricityClient {
@@ -6,11 +6,11 @@ public class TestCaptricityClient {
   public static void main(String[] args) {
     try {
 			String apiToken = System.getenv("TEST_API_TOKEN");
-			String testFileLocation = "/Users/davids/Desktop/EZ-return1.pdf";
-      String testFileLocation2 = "/Users/davids/Desktop/EZ-return2.pdf";
-			String testBatchName = "Java Batch with Metadata 17-A";
+			String testFileLocation =  "/Users/davids/Documents/CLEARDTOP/API_demo/EZ-return1.pdf";
+      String testFileLocation2 = "/Users/davids/Documents/CLEARDTOP/API_demo/EZ-return2.pdf";
+			String testBatchName = "Java Batch with Metadata July29-A";
 			
-			CaptricityClient capClient = new CaptricityClient(apiToken);
+			CaptricityStagingClient capClient = new CaptricityStagingClient(apiToken);
 			
 			JSONObject newBatch = capClient.createBatch(testBatchName);
 			System.out.println("Create New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
