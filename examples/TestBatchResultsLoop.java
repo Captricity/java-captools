@@ -1,4 +1,4 @@
-import com.captricity.api.CaptricityClient;
+import com.captricity.api.CaptricityStagingClient;
 import org.json.*;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -6,7 +6,7 @@ import java.util.TimerTask;
 public class TestBatchResultsLoop {
   
 	String apiToken = System.getenv("TEST_API_TOKEN");
-	CaptricityClient capClient = new CaptricityClient(apiToken);
+	CaptricityStagingClient capClient = new CaptricityStagingClient(apiToken);
   Timer timer;
   
   public TestBatchResultsLoop() {}
