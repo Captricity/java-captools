@@ -42,13 +42,16 @@ public class TestBatchResultsLoop {
   
   public void run() throws Exception {
     String testFileLocation = "/Users/davids/Documents/CLEARDTOP/API_demo/EZ-return1.pdf";
-    String testBatchName = "Java Batch Results Test 1-1";
+    String testBatchName = "Java Batch Results Test 8-4";
 
     JSONObject newBatch = capClient.createBatch(testBatchName);
     System.out.println("Created New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
     System.out.println();
-
-    JSONObject batchFile = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation);
+    
+    JSONObject meta = new JSONObject().put("DCN", "c3469c7b-52fd-43f4-9cba-2215c8678a97");
+    meta.put("sequence-id", 1);
+    
+		JSONObject batchFile = capClient.addFileToBatch(newBatch.getInt("id"), testFileLocation, meta);
     System.out.println("Added Batch File:  " + batchFile.getString("file_name") + ", " + batchFile.getString("uuid"));
     System.out.println();
 
