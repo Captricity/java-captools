@@ -1,12 +1,5 @@
 .DS_Store
 
-.idea
-
-schema.json
-JavaCaptricityClient.java
-
-doc/
-
 *.class
 
 # Mobile Tools for Java (J2ME)
