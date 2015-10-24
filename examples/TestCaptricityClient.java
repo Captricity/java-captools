@@ -1,4 +1,4 @@
-import com.captricity.api.CaptricityStagingClient;
+import com.captricity.api.CaptricityClient;
 import org.json.*;
 
 public class TestCaptricityClient {
@@ -10,7 +10,7 @@ public class TestCaptricityClient {
       String testFileLocation2 = "/Users/davids/Documents/CLEARDTOP/API_demo/EZ-return2.pdf";
 			String testBatchName = "Java Batch with Metadata July29-A";
 			
-			CaptricityStagingClient capClient = new CaptricityStagingClient(apiToken);
+			CaptricityClient capClient = new CaptricityClient(apiToken);
 			
 			JSONObject newBatch = capClient.createBatch(testBatchName);
 			System.out.println("Create New Batch:  " + newBatch.getInt("id") + ", " + newBatch.getString("name"));
