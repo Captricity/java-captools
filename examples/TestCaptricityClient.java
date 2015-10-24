@@ -77,5 +77,3 @@ public class TestCaptricityClient {
     System.exit(1);
   }
 }
-
-

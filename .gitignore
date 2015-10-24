@@ -4,6 +4,7 @@ schema.json
 JavaCaptricityClient.java
 
 doc/
+tests/
 .idea/
 
 *.class
