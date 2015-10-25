@@ -1,4 +1,4 @@
-# java-captools
+# java-captools 1.1
 #### Captricity API client library written in Java
 
 Currently, the Captricity API client library provides methods to accomplish the following:
@@ -25,9 +25,9 @@ From the base of the directory, type
 ant jar
 ```
 
-A jar file named **captricity-1.0.jar** will be generated in the base directory.
+A jar file named **captricity-1.1.jar** will be generated in the base directory.
 
-Copy/move the captricity-1.0.jar file into your classpath.
+Copy/move the captricity-1.1.jar file into your classpath.
 
 and then in your java program, like is done in the example code-- TestCaptricityClient.java,
 
@@ -146,6 +146,3 @@ public JSONArray showDocuments() throws Exception {...}
 [Apache HttpClient 4.4](http://psg.mtu.edu/pub/apache//httpcomponents/httpclient/binary/httpcomponents-client-4.4-bin.zip)
 
 [org.json](http://central.maven.org/maven2/org/json/json/20140107/json-20140107.jar)
-
-### To-Do List...
-- Add methods for more Captricity API functionality
