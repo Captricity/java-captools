@@ -1,6 +1,7 @@
 package com.captricity.api;
 
 import java.io.File;
+import java.util.ArrayList;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.StringEntity;
@@ -120,19 +121,28 @@ public class CaptricityClient {
 		return response;
 	}
 	
-	public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {
+	public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly, ArrayList<Integer> docIds) throws Exception {
 		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
+    JSONArray docs = new JSONArray(docIds);
 		// assemble payload
 		JSONObject payload = new JSONObject();
 		payload.put("name", name);
-		payload.put("sorting_enabled", sorting_enabled);
-		payload.put("is_sorting_only", is_sorting_only);
+		payload.put("sorting_enabled", sortingEnabled);
+		payload.put("is_sorting_only", isSortingOnly);
+    if ( docs.length() > 0 ) {
+      payload.put("documents", docs);
+    }
 		JSONObject response = makePostCall(batchesUri, payload);
 		return response;
 	}
 	
+  public JSONObject createBatch(String name, ArrayList<Integer> docIds) throws Exception {
+    return createBatch(name, true, false, docIds);
+  }
+  
   public JSONObject createBatch(String name) throws Exception {
-    return createBatch(name, true, false);
+    ArrayList<Integer> docIds = new ArrayList<Integer>();
+    return createBatch(name, true, false, docIds);
   }
   
 	public JSONObject readBatch(int batchID) throws Exception {

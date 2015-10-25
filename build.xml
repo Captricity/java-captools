@@ -3,7 +3,7 @@
   
   <target name="clean" description="clean up" >
     <delete dir="build" />
-		<delete file="captricity-1.0.jar" />
+		<delete file="captricity-1.1.jar" />
   </target>
 	
   <target name="compile" depends="clean" description="compile the source" >
@@ -12,6 +12,6 @@
   </target>
 
   <target name="jar" depends="compile" description="generate the distribution" >
-    <jar destfile="captricity-1.0.jar" basedir="build/classes" />
+    <jar destfile="captricity-1.1.jar" basedir="build/classes" />
   </target>
 </project>

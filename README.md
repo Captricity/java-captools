@@ -62,14 +62,16 @@ public JSONArray showBatches() throws Exception {...}
 
 ```java
 public JSONObject createBatch(String name) throws Exception {...}
-public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
+public JSONObject createBatch(String name, ArrayList<Integer> docIds) throws Exception {...}
+public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly, ArrayList<Integer> docIds) throws Exception {...}
 ```
 * Creates a Batch in accordance with the given name and properties.
 * Returns a `JSONObject` representing the Batch that was created by the method call.
 * Parameters:
   - `String name` - Provide a name for the Batch you are creating
-  - `Boolean sorting_enabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
-  - `Boolean is_sorting_only` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
+  - `Boolean sortingEnabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
+  - `Boolean isSortingOnly` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
+  - `ArrayList<Integer> docIds` \- Add an ArrayList of integers representing the Document ID's of the templates that you want to use for sorting.  Your account must have sorting enabled for this to work. If sorting is enabled on your account and you do not specify a list of Document ID's, your Batch will be sorted against all active templates in your account.
 
 ```java
 public JSONObject readBatch(int batchID) throws Exception {...}
