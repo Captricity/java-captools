@@ -258,8 +258,12 @@ public class CaptricityClient {
           }
         }
         
-      } else {
-        // is_digitized is false
+      } else if ( batch.getString("status").equals("setup") ) {
+        // batch has not been submitted yet...
+        results.append("Batch has not been submitted yet.\n");
+      
+      } else if ( batch.getString("status").equals("processed") ) {
+        // is_digitized is false but it is marked as processed
         
         int rejectCount = 0;
         if ( verboseResults ) {
@@ -298,6 +302,9 @@ public class CaptricityClient {
         } else {
           results.append("Batch has not finished digitization yet.\n");
         }
+      } else {
+        // in an in-between state
+        results.append("Batch is processing.  Please check back later.");
       }
     } else {
       // case of an internal child batch -- don't want to show anything for this type of batch
