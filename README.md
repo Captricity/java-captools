@@ -1,4 +1,4 @@
-# java-captools
+# java-captools 1.1
 #### Captricity API client library written in Java
 
 Currently, the Captricity API client library provides methods to accomplish the following:
@@ -25,9 +25,9 @@ From the base of the directory, type
 ant jar
 ```
 
-A jar file named **captricity-1.0.jar** will be generated in the base directory.
+A jar file named **captricity-1.1.jar** will be generated in the base directory.
 
-Copy/move the captricity-1.0.jar file into your classpath.
+Copy/move the captricity-1.1.jar file into your classpath.
 
 and then in your java program, like is done in the example code-- TestCaptricityClient.java,
 
@@ -62,14 +62,16 @@ public JSONArray showBatches() throws Exception {...}
 
 ```java
 public JSONObject createBatch(String name) throws Exception {...}
-public JSONObject createBatch(String name, Boolean sorting_enabled, Boolean is_sorting_only) throws Exception {...}
+public JSONObject createBatch(String name, ArrayList<Integer> docIds) throws Exception {...}
+public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly, ArrayList<Integer> docIds) throws Exception {...}
 ```
 * Creates a Batch in accordance with the given name and properties.
 * Returns a `JSONObject` representing the Batch that was created by the method call.
 * Parameters:
   - `String name` - Provide a name for the Batch you are creating
-  - `Boolean sorting_enabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
-  - `Boolean is_sorting_only` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
+  - `Boolean sortingEnabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
+  - `Boolean isSortingOnly` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
+  - `ArrayList<Integer> docIds` \- Add an `ArrayList` of integers representing the Document ID's of the templates that you want to use for sorting.  Your account must have sorting enabled for this to work. If sorting is enabled on your account and you do not specify a list of Document ID's, your Batch will be sorted against all active templates in your account.
 
 ```java
 public JSONObject readBatch(int batchID) throws Exception {...}
@@ -144,6 +146,3 @@ public JSONArray showDocuments() throws Exception {...}
 [Apache HttpClient 4.4](http://psg.mtu.edu/pub/apache//httpcomponents/httpclient/binary/httpcomponents-client-4.4-bin.zip)
 
 [org.json](http://central.maven.org/maven2/org/json/json/20140107/json-20140107.jar)
-
-### To-Do List...
-- Add methods for more Captricity API functionality
