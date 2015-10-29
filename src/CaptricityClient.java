@@ -18,9 +18,15 @@ import org.json.*;
 public class CaptricityClient {
 	
 	private String apiToken;
+  private String endpoint;
 	
+  public CaptricityClient(String token, String url) {
+    apiToken = token;
+    endpoint = url;
+  }
+  
 	public CaptricityClient(String token) {
-		apiToken = token;
+		this(token, "https://shreddr.captricity.com");
 	}
 	
 	private JSONArray makeGetArrayCall(String target) throws Exception {
@@ -116,13 +122,13 @@ public class CaptricityClient {
 	}
 	
 	public JSONArray showBatches() throws Exception {
-		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
+		String batchesUri = endpoint + "/api/v1/batch/";
     JSONArray response = makeGetArrayCall(batchesUri);
 		return response;
 	}
 	
 	public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly, ArrayList<Integer> docIds) throws Exception {
-		String batchesUri = "https://shreddr.captricity.com/api/v1/batch/";
+		String batchesUri = endpoint + "/api/v1/batch/";
     JSONArray docs = new JSONArray(docIds);
 		// assemble payload
 		JSONObject payload = new JSONObject();
@@ -146,13 +152,13 @@ public class CaptricityClient {
   }
   
 	public JSONObject readBatch(int batchID) throws Exception {
-		String readBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID;
+		String readBatchUri = endpoint + "/api/v1/batch/" + batchID;
     JSONObject response = makeGetObjectCall(readBatchUri);
 		return response;
 	}
 	
 	public JSONObject deleteBatch(int batchID) throws Exception {
-		String deleteBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID;
+		String deleteBatchUri = endpoint + "/api/v1/batch/" + batchID;
 		// JSONObject payload = new JSONObject();
 		JSONObject response = makeDeleteCall(deleteBatchUri);
 		return response;
@@ -163,7 +169,7 @@ public class CaptricityClient {
 		try {
 			File new_batch_file = new File(fileName);
 			
-			HttpPost postRequest = new HttpPost("https://shreddr.captricity.com/api/v1/batch/" + batchID + "/batch-file/");
+			HttpPost postRequest = new HttpPost(endpoint + "/api/v1/batch/" + batchID + "/batch-file/");
 			postRequest.addHeader("Captricity-API-Token", apiToken);
 			
       MultipartEntityBuilder builder = MultipartEntityBuilder.create();
@@ -199,7 +205,7 @@ public class CaptricityClient {
   }
 	
 	public JSONObject submitBatch(int batchID) throws Exception {
-		String submitBatchUri = "https://shreddr.captricity.com/api/v1/batch/" + batchID + "/submit";
+		String submitBatchUri = endpoint + "/api/v1/batch/" + batchID + "/submit";
 		JSONObject payload = new JSONObject();
 		JSONObject response = makePostCall(submitBatchUri, payload);
 		return response;
@@ -318,7 +324,7 @@ public class CaptricityClient {
   }
   
 	public int getJobStatus(int jobID) throws Exception {
-		String getJobUri = "https://shreddr.captricity.com/api/v1/job/" + jobID;
+		String getJobUri = endpoint + "/api/v1/job/" + jobID;
     JSONObject response = makeGetObjectCall(getJobUri);
 		int percent_complete = response.getInt("percent_completed");
 		return percent_complete;
@@ -329,7 +335,7 @@ public class CaptricityClient {
 		try {
 			int jobStatus = getJobStatus(jobID);
 			if ( jobStatus == 100 ) {
-				HttpGet getRequest = new HttpGet("https://shreddr.captricity.com/api/v1/job/" + jobID + "/csv/?include-json-metadata-column=true");
+				HttpGet getRequest = new HttpGet(endpoint + "/api/v1/job/" + jobID + "/csv/?include-json-metadata-column=true");
 				getRequest.addHeader("Captricity-API-Token", apiToken);
 			
 				CloseableHttpResponse response = client.execute(getRequest);
@@ -351,7 +357,7 @@ public class CaptricityClient {
 	}
 	
 	public JSONArray showDocuments() throws Exception {
-		String documentsUri = "https://shreddr.captricity.com/api/v1/document/";
+		String documentsUri = endpoint + "/api/v1/document/";
 		JSONArray response = makeGetArrayCall(documentsUri);
 		return response;
 	}
