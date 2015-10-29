@@ -51,6 +51,16 @@ You can then use this client object to make method calls against the Captricity 
 JSONObject newBatch = capClient.createBatch("name of new batch", true, false);
 ```
 
+### Constructor methods
+
+```java
+public CaptricityClient(String token)
+public CaptricityClient(String token, String url) 
+```
+* Create a Captricity API client object.
+* You will need a Captricity API token.
+* Unless you have been directed otherwise, use the simpler constructor, and the endpoint URL will be set for you.
+
 ### Summary of available methods
 
 ```java
