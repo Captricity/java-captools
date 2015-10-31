@@ -73,6 +73,7 @@ public JSONArray showBatches() throws Exception {...}
 ```java
 public JSONObject createBatch(String name) throws Exception {...}
 public JSONObject createBatch(String name, ArrayList<Integer> docIds) throws Exception {...}
+public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly) throws Exception {...}
 public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly, ArrayList<Integer> docIds) throws Exception {...}
 ```
 * Creates a Batch in accordance with the given name and properties.
