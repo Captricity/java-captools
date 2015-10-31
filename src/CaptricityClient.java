@@ -146,6 +146,11 @@ public class CaptricityClient {
     return createBatch(name, true, false, docIds);
   }
   
+  public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSortingOnly) throws Exception {
+    ArrayList<Integer> docIds = new ArrayList<Integer>();
+    return createBatch(name, sortingEnabled, isSortingOnly, docIds);
+  }
+  
   public JSONObject createBatch(String name) throws Exception {
     ArrayList<Integer> docIds = new ArrayList<Integer>();
     return createBatch(name, true, false, docIds);
