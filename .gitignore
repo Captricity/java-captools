@@ -6,6 +6,7 @@ JavaCaptricityClient.java
 doc/
 tests/
 .idea/
+*.zip
 
 *.class
 
