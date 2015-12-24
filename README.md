@@ -148,8 +148,9 @@ public String getJobResults(int jobID) throws Exception {...}
 
 ```java
 public JSONArray showTemplates() throws Exception {...}
+public JSONArray showDocuments() throws Exception {...}
 ```
-* Returns a `JSONArray` of the master templates that exist in your account.
+* Returns a `JSONArray` of the master templates that exist in your account.  `showDocuments()` method just points to `showTemplates()` and is kept to maintain backwards compatibility.
 * Parameters:
   - *None*
 

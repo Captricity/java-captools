@@ -367,6 +367,11 @@ public class CaptricityClient {
 		return response;
 	}
   
+	public JSONArray showDocuments() throws Exception {
+    // included method to maintain backwards-compatibility
+		return showTemplates();
+	}
+  
 	public JSONObject readTemplate(int templateId) throws Exception {
 		String readTemplateUri = endpoint + "/api/v1/document/" + templateId;
     JSONObject response = makeGetObjectCall(readTemplateUri);
