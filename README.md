@@ -11,7 +11,8 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * show a list of Batches in the account
 * get Job status (percent completed)
 * get Job results (for Jobs that are 100% complete)
-* show a list of master templates in the account
+* show a list of master Templates in the account
+* get a list of all the Fields on a Template
 
 I have also provided a number of example programs that demonstrate how the API client library works in a controlled environment.  You can find these programs in the examples folder.
 
@@ -82,7 +83,7 @@ public JSONObject createBatch(String name, Boolean sortingEnabled, Boolean isSor
   - `String name` - Provide a name for the Batch you are creating
   - `Boolean sortingEnabled` \- Set to true to enable sorting for this Batch.  The default value is `true` if not specified.
   - `Boolean isSortingOnly` \- Set to true if you only want to sort this Batch (as opposed to submit for data extraction).  The default value is `false` if not specified.
-  - `ArrayList<Integer> docIds` \- Add an `ArrayList` of integers representing the Document ID's of the templates that you want to use for sorting.  Your account must have sorting enabled for this to work. If sorting is enabled on your account and you do not specify a list of Document ID's, your Batch will be sorted against all active templates in your account.
+  - `ArrayList<Integer> docIds` \- Add an `ArrayList` of integers representing the Template ID's of the templates that you want to use for sorting.  Your account must have sorting enabled for this to work. If sorting is enabled on your account and you do not specify a list of Template ID's, your Batch will be sorted against all active templates in your account.
 
 ```java
 public JSONObject readBatch(int batchID) throws Exception {...}
