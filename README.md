@@ -1,4 +1,4 @@
-# java-captools 1.1
+# java-captools 1.2
 #### Captricity API client library written in Java
 
 Currently, the Captricity API client library provides methods to accomplish the following:
@@ -11,7 +11,7 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * show a list of Batches in the account
 * get Job status (percent completed)
 * get Job results (for Jobs that are 100% complete)
-* show a list of Documents (master templates) in the account
+* show a list of master templates in the account
 
 I have also provided a number of example programs that demonstrate how the API client library works in a controlled environment.  You can find these programs in the examples folder.
 
@@ -25,9 +25,9 @@ From the base of the directory, type
 ant jar
 ```
 
-A jar file named **captricity-1.1.jar** will be generated in the base directory.
+A jar file named **captricity-1.2.jar** will be generated in the base directory.
 
-Copy/move the captricity-1.1.jar file into your classpath.
+Copy/move the captricity-1.2.jar file into your classpath.
 
 and then in your java program, like is done in the example code-- TestCaptricityClient.java,
 
@@ -146,11 +146,30 @@ public String getJobResults(int jobID) throws Exception {...}
   - `int jobID` \- Job ID of the Job in question
 
 ```java
-public JSONArray showDocuments() throws Exception {...}
+public JSONArray showTemplates() throws Exception {...}
 ```
-* Returns a `JSONArray` of the Documents (master templates) that exist in your account.
+* Returns a `JSONArray` of the master templates that exist in your account.
 * Parameters:
   - *None*
+
+```java
+public JSONObject readTemplate(int templateId) throws Exception {...}
+```
+* Gets the Template specified by the templateId parameter.
+* Returns a `JSONObject` representing the Template.
+* Parameters:
+  - `int templateId` \- Template ID of the Template you want to get.
+
+```java
+public String listTemplateFields(int templateId) throws Exception {...}
+public String listTemplateFields(int templateId, Boolean includeChoices) throws Exception {...} 
+```
+* Gets the list of Fields associated with the Template specified by the templateId parameter.
+* Returns a `String` representing the list of fields associated with the Template.
+* Parameters:
+  - `int templateId` \- Template ID of the Template for which you want to get the Field list.
+  - `Boolean verboseResults` \- Set to true to show enumeration of choices of multiple choice fields.  The default value is `false` if not specified.
+
 
 ### Dependencies
 

@@ -361,9 +361,70 @@ public class CaptricityClient {
 		return new String("There were no job results found for the specified Job ID.");
 	}
 	
-	public JSONArray showDocuments() throws Exception {
+	public JSONArray showTemplates() throws Exception {
 		String documentsUri = endpoint + "/api/v1/document/";
 		JSONArray response = makeGetArrayCall(documentsUri);
 		return response;
 	}
+  
+	public JSONObject readTemplate(int templateId) throws Exception {
+		String readTemplateUri = endpoint + "/api/v1/document/" + templateId;
+    JSONObject response = makeGetObjectCall(readTemplateUri);
+		return response;
+	}
+  
+  public JSONArray getSheetFields(int sheetId) throws Exception {
+    String readSheetUri = endpoint + "/api/v1/sheet/" + sheetId + "/field/";
+		JSONArray response = makeGetArrayCall(readSheetUri);
+		return response;
+  }
+  
+	public String listTemplateFields(int templateId, Boolean includeChoices) throws Exception {
+    StringBuilder fieldList = new StringBuilder();
+    JSONObject template = readTemplate(templateId);
+    
+    if ( template.getBoolean("active") & template.getBoolean("user_visible") ) {
+      fieldList.append("Template ID:  " + template.getInt("id") + "\n");
+      fieldList.append("Template name:  " + template.getString("name") + "\n");
+      fieldList.append("Template page count:  " + template.getInt("page_count") + "\n");
+      fieldList.append("Versioned template?  " + template.getBoolean("is_versioned") + "\n");
+      
+      if ( template.getBoolean("has_fields") ) {
+        JSONArray sheets = template.getJSONArray("sheets");
+        if ( sheets.length() > 0 ) {
+          for (int i=0; i < sheets.length(); i++) {
+            JSONObject sheet = sheets.getJSONObject(i);
+            fieldList.append("Page number:  " + sheet.getInt("page_number") + "\n");
+            JSONArray fields = getSheetFields(sheet.getInt("id"));
+            if ( fields.length() > 0 ) {
+              for (int j=0; j < fields.length(); j++) {
+                JSONObject field = fields.getJSONObject(j);
+                fieldList.append(field.getString("name") + ", " + field.getString("friendly_name"));
+                if (includeChoices) {
+                  if ( field.getString("friendly_name").equals("Select many") | field.getString("friendly_name").equals("Select one") ) {
+                    fieldList.append(", " + field.getJSONArray("categorical_constraint").toString() + "\n");
+                  } else {
+                    fieldList.append("\n");
+                  }
+                } else {
+                  fieldList.append("\n");
+                }
+              }
+            }
+            fieldList.append("\n");
+          }
+        }
+      }
+
+    } else {
+      fieldList.append("Sorry, either that no template with that ID exists or it is not currently active.");
+    }
+    
+    return fieldList.toString();
+	}
+  
+  public String listTemplateFields(int templateId) throws Exception {
+    return listTemplateFields(templateId, false); 
+  }
+  
 }
