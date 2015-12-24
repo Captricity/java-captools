@@ -422,7 +422,7 @@ public class CaptricityClient {
       }
 
     } else {
-      fieldList.append("Sorry, either that no template with that ID exists or it is not currently active.");
+      fieldList.append("Sorry, either no template with that ID exists or it is not currently active.");
     }
     
     return fieldList.toString();
