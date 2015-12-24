@@ -12,7 +12,7 @@ Currently, the Captricity API client library provides methods to accomplish the 
 * get Job status (percent completed)
 * get Job results (for Jobs that are 100% complete)
 * show a list of master Templates in the account
-* get a list of all the Fields on a Template
+* get a list of all the Fields defined on a Template
 
 I have also provided a number of example programs that demonstrate how the API client library works in a controlled environment.  You can find these programs in the examples folder.
 
