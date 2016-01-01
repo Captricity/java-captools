@@ -404,16 +404,14 @@ public class CaptricityClient {
             if ( fields.length() > 0 ) {
               for (int j=0; j < fields.length(); j++) {
                 JSONObject field = fields.getJSONObject(j);
+                // fieldList.append(field.getInt("id") + ", " + field.getString("name") + ", " + field.getString("friendly_name"));
                 fieldList.append(field.getString("name") + ", " + field.getString("friendly_name"));
                 if (includeChoices) {
                   if ( field.getString("friendly_name").equals("Select many") | field.getString("friendly_name").equals("Select one") ) {
-                    fieldList.append(", " + field.getJSONArray("categorical_constraint").toString() + "\n");
-                  } else {
-                    fieldList.append("\n");
+                    fieldList.append(", " + field.getJSONArray("categorical_constraint").toString());
                   }
-                } else {
-                  fieldList.append("\n");
                 }
+                fieldList.append("\n");
               }
             }
             fieldList.append("\n");
