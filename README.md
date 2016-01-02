@@ -167,10 +167,10 @@ public String listTemplateFields(int templateId) throws Exception {...}
 public String listTemplateFields(int templateId, Boolean includeChoices) throws Exception {...} 
 ```
 * Gets the list of Fields associated with the Template specified by the templateId parameter.
-* Returns a `String` representing the list of fields associated with the Template.
+* Returns a `String` representing the list of fields associated with the Template.  Note that the fields will be ordered alphabetically by name.
 * Parameters:
   - `int templateId` \- Template ID of the Template for which you want to get the Field list.
-  - `Boolean verboseResults` \- Set to true to show enumeration of choices of multiple choice fields.  The default value is `false` if not specified.
+  - `Boolean includeChoices` \- Set to true to show enumeration of choices of multiple choice fields.  The default value is `false` if not specified.
 
 
 ### Dependencies

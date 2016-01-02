@@ -1,6 +1,9 @@
 package com.captricity.api;
 
 import java.io.File;
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ArrayList;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
@@ -121,6 +124,22 @@ public class CaptricityClient {
 		return new JSONObject();
 	}
 	
+  private JSONArray sortJsonArray(JSONArray array, String sortField) {
+      List<JSONObject> jsons = new ArrayList<JSONObject>();
+      for (int i = 0; i < array.length(); i++) {
+          jsons.add(array.getJSONObject(i));
+      }
+      Collections.sort(jsons, new Comparator<JSONObject>() {
+          @Override
+          public int compare(JSONObject lhs, JSONObject rhs) {
+              String lid = lhs.getString(sortField);
+              String rid = rhs.getString(sortField);
+              return lid.compareTo(rid);
+          }
+      });
+      return new JSONArray(jsons);
+  }
+  
 	public JSONArray showBatches() throws Exception {
 		String batchesUri = endpoint + "/api/v1/batch/";
     JSONArray response = makeGetArrayCall(batchesUri);
@@ -400,8 +419,9 @@ public class CaptricityClient {
           for (int i=0; i < sheets.length(); i++) {
             JSONObject sheet = sheets.getJSONObject(i);
             fieldList.append("Page number:  " + sheet.getInt("page_number") + "\n");
-            JSONArray fields = getSheetFields(sheet.getInt("id"));
-            if ( fields.length() > 0 ) {
+            JSONArray unsortedFields = getSheetFields(sheet.getInt("id"));
+            if ( unsortedFields.length() > 0 ) {
+              JSONArray fields = sortJsonArray(unsortedFields, "name");
               for (int j=0; j < fields.length(); j++) {
                 JSONObject field = fields.getJSONObject(j);
                 // fieldList.append(field.getInt("id") + ", " + field.getString("name") + ", " + field.getString("friendly_name"));
