@@ -418,7 +418,8 @@ public class CaptricityClient {
         if ( sheets.length() > 0 ) {
           for (int i=0; i < sheets.length(); i++) {
             JSONObject sheet = sheets.getJSONObject(i);
-            fieldList.append("Page number:  " + sheet.getInt("page_number") + "\n");
+            int pageNum = sheet.getInt("page_number") + 1;
+            fieldList.append("Page number:  " + pageNum + "\n");
             JSONArray unsortedFields = getSheetFields(sheet.getInt("id"));
             if ( unsortedFields.length() > 0 ) {
               JSONArray fields = sortJsonArray(unsortedFields, "name");
