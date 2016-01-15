@@ -403,7 +403,7 @@ public class CaptricityClient {
 		return response;
   }
   
-	public String listTemplateFields(int templateId, Boolean includeChoices) throws Exception {
+	public String listTemplateFields(int templateId, Boolean includeChoices, Boolean showAllVersions) throws Exception {
     StringBuilder fieldList = new StringBuilder();
     JSONObject template = readTemplate(templateId);
     
@@ -418,21 +418,23 @@ public class CaptricityClient {
         if ( sheets.length() > 0 ) {
           for (int i=0; i < sheets.length(); i++) {
             JSONObject sheet = sheets.getJSONObject(i);
-            int pageNum = sheet.getInt("page_number") + 1;
-            fieldList.append("Page number:  " + pageNum + "\n");
-            JSONArray unsortedFields = getSheetFields(sheet.getInt("id"));
-            if ( unsortedFields.length() > 0 ) {
-              JSONArray fields = sortJsonArray(unsortedFields, "name");
-              for (int j=0; j < fields.length(); j++) {
-                JSONObject field = fields.getJSONObject(j);
-                // fieldList.append(field.getInt("id") + ", " + field.getString("name") + ", " + field.getString("friendly_name"));
-                fieldList.append(field.getString("name") + ", " + field.getString("friendly_name"));
-                if (includeChoices) {
-                  if ( field.getString("friendly_name").equals("Select many") | field.getString("friendly_name").equals("Select one") ) {
-                    fieldList.append(", " + field.getJSONArray("categorical_constraint").toString());
+            if ( sheet.getString("version_name").equals("Master") | showAllVersions ) {
+              int pageNum = sheet.getInt("page_number") + 1;
+              fieldList.append("Page number:  " + pageNum + "\n");
+              JSONArray unsortedFields = getSheetFields(sheet.getInt("id"));
+              if ( unsortedFields.length() > 0 ) {
+                JSONArray fields = sortJsonArray(unsortedFields, "name");
+                for (int j=0; j < fields.length(); j++) {
+                  JSONObject field = fields.getJSONObject(j);
+                  // fieldList.append(field.getInt("id") + ", " + field.getString("name") + ", " + field.getString("friendly_name"));
+                  fieldList.append(field.getString("name") + ", " + field.getString("friendly_name"));
+                  if (includeChoices) {
+                    if ( field.getString("friendly_name").equals("Select many") | field.getString("friendly_name").equals("Select one") ) {
+                      fieldList.append(", " + field.getJSONArray("categorical_constraint").toString());
+                    }
                   }
+                  fieldList.append("\n");
                 }
-                fieldList.append("\n");
               }
             }
             fieldList.append("\n");
@@ -447,8 +449,12 @@ public class CaptricityClient {
     return fieldList.toString();
 	}
   
+  public String listTemplateFields(int templateId, Boolean includeChoices) throws Exception {
+    return listTemplateFields(templateId, includeChoices, false);
+  }
+  
   public String listTemplateFields(int templateId) throws Exception {
-    return listTemplateFields(templateId, false); 
+    return listTemplateFields(templateId, false, false); 
   }
   
 }
