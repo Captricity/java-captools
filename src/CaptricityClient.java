@@ -246,7 +246,7 @@ public class CaptricityClient {
 		CloseableHttpClient client = null;
 		String result = null;
 		
-		// Create a list of strings
+		// create a comma delimited string of Ids from List
 		String ids = String.join(",", idList);
 		
 		try {
