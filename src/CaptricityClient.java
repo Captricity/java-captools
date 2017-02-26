@@ -236,7 +236,14 @@ public class CaptricityClient {
 		return response;
 	}
 	
-	public JSONArray getBatchInfoById(List<String> idList) throws Exception {
+	/**
+	 * Returns batch info for all IDs passed in the idList.
+	 * 
+	 * @param idList List of Batch IDs 
+	 * @return JSONArray of batch information for all Batch IDs
+	 * @throws Exception
+	 */
+	public JSONArray getMultipleBatchInfoById(List<String> idList) throws Exception {
 
 		// Check that idList is not null or empty
 		if (idList == null || idList.isEmpty()){
