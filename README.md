@@ -121,6 +121,14 @@ public JSONObject submitBatch(int batchID) throws Exception {...}
   - `int batchID` \- Batch ID of the Batch you want to submit for processing
 
 ```java
+public JSONArray getMultipleBatchInfoById(List<String> idList) throws Exception {...}
+```
+* Gets the results/status for all the Batches specified in the idList parameter
+* Returns a `JSONArray` of results for all the Batches requested
+* Parameters:
+  - `List<String> idList` \- List of Batch IDs for which you want to obtain the results.  This must contain at least one ID.
+
+```java
 public String getBatchResults(int batchID) throws Exception {...}
 public String getBatchResults(int batchID, Boolean verboseResults) throws Exception {...}
 ```
