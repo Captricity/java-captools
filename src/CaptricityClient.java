@@ -1,22 +1,23 @@
 package com.captricity.api;
 
 import java.io.File;
-import java.util.List;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
-import org.apache.http.Header;
+import java.util.List;
+
 import org.apache.http.HttpEntity;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.util.EntityUtils;
-import org.json.*;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class CaptricityClient {
 	
@@ -233,6 +234,46 @@ public class CaptricityClient {
 		JSONObject payload = new JSONObject();
 		JSONObject response = makePostCall(submitBatchUri, payload);
 		return response;
+	}
+	
+	/**
+	 * Returns batch info for all IDs passed in the idList.
+	 * 
+	 * @param idList List of Batch IDs 
+	 * @return JSONArray of batch information for all Batch IDs
+	 * @throws Exception
+	 */
+	public JSONArray getMultipleBatchInfoById(List<String> idList) throws Exception {
+
+		// Check that idList is not null or empty
+		if (idList == null || idList.isEmpty()){
+			throw new Exception("list of ids must contain at least one id");
+		}
+		
+		CloseableHttpClient client = null;
+		String result = null;
+		
+		// create a comma delimited string of Ids from List
+		String ids = String.join(",", idList);
+		
+		try {
+			client = HttpClients.createDefault();
+		
+			HttpGet getRequest = new HttpGet(endpoint + "/api/v1/batch/?ids="+ ids);
+			getRequest.addHeader("Captricity-API-Token", apiToken);
+		
+			CloseableHttpResponse response = client.execute(getRequest);
+			HttpEntity entity = response.getEntity();
+			if (entity != null) {
+				result = EntityUtils.toString(entity);
+			}		
+		} catch (Exception e) {
+			throw new Exception("Error getting batch info based on Ids", e);
+		} finally {
+			client.close();
+		}
+		
+		return new JSONArray(result);
 	}
 	
   public String getBatchResults(int batchID, Boolean verboseResults) throws Exception {
