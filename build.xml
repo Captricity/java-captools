@@ -1,6 +1,12 @@
 <project name="Captricity Client Library" default="dist" basedir=".">
   <description>Build file for Captricity Client Library</description>
   
+  <path id="build.classpath">
+    <fileset dir="lib">
+      <include name="**/*.jar"/>
+    </fileset>
+  </path>
+
   <target name="clean" description="clean up" >
     <delete dir="build" />
 		<delete file="captricity-1.2.jar" />
@@ -8,7 +14,7 @@
 	
   <target name="compile" depends="clean" description="compile the source" >
 		<mkdir dir="build/classes" />
-    <javac srcdir="src" destdir="build/classes" includeantruntime="false" />
+    <javac srcdir="src" destdir="build/classes" includeantruntime="false" classpathref="build.classpath" />
   </target>
 
   <target name="jar" depends="compile" description="generate the distribution" >

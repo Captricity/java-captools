@@ -14,7 +14,7 @@ tests/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+captricity-1.2.jar
 *.war
 *.ear
 
