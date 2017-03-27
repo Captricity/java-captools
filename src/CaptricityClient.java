@@ -1,4 +1,4 @@
-package com.captricity.api;
+package com.captricity.shreddr.restapipackage;
 
 import java.io.File;
 import java.util.ArrayList;
